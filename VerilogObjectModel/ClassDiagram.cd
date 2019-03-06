@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VerilogObjectModel.ModuleDescription">
+    <Position X="0.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAkAAAAAAAAAAAAEBAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>ModuleDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VerilogObjectModel.ModuleInstantiation">
+    <Position X="4.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEBAAAAAAAAAQAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ModuleInstantiation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VerilogObjectModel.ModuleParameter">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ModuleParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VerilogObjectModel.Net">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAkAAIAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Net.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VerilogObjectModel.Tools">
+    <Position X="9.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Tools.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VerilogObjectModel.VerilogElement">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>VerilogElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="VerilogObjectModel.NetType">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAgAAAAAAAAAAIAAAAGAAQBAAAGAAIAAwAGBA=</HashCode>
+      <FileName>NetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
