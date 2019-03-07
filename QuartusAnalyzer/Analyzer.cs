@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using VerilogObjectModel;
 
 namespace QuartusAnalyzer
 {
@@ -12,8 +9,8 @@ namespace QuartusAnalyzer
         {
             text = text.RemoveAll("\t");
             var lines = text.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            lines.ForEach(l => l.Trim());
-
+            lines = lines.Select(l => l.Trim().Replace("~", "_")).ToList();
+            
             lines.RemoveAll(l => l.StartsWith("//") || l.StartsWith("`"));
 
             return lines.ToArray();
@@ -21,22 +18,25 @@ namespace QuartusAnalyzer
 
         private static QuartusScheme PostProcess(QuartusScheme quartusScheme)
         {
-            foreach (var net in quartusScheme.Module.Nets)
+            foreach (var net in quartusScheme.ModuleDescription.Nets)
             {
                 net.Identifier = net.Identifier.Replace("~", "_");
                 net.Identifier = net.Identifier.Replace(".", "_");
             }
 
-            foreach (var moduleModuleInstantiation in quartusScheme.Module.ModuleInstantiations)
+            foreach (var moduleModuleInstantiation in quartusScheme.ModuleDescription.ModuleInstantiations)
             {
-                moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace("~", "_");
-                moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace(".", "_");
+                moduleModuleInstantiation.ModuleDescriptionIdentifier = moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace("~", "_");
+                moduleModuleInstantiation.ModuleDescriptionIdentifier = moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace(".", "_");
                 foreach (var port in moduleModuleInstantiation.Ports)
                 {
-                    port.Identifier.Replace("~", "_");
-                    port.Identifier.Replace(".", "_");
-                    port.ConnectedNet?.Identifier.Replace("~", "_");
-                    port.ConnectedNet?.Identifier.Replace(".", "_");
+                    port.Identifier = port.Identifier.Replace("~", "_");
+                    port.Identifier = port.Identifier.Replace(".", "_");
+                    if (port.ConnectedNet != null)
+                    {
+                        port.ConnectedNet.Identifier = port.ConnectedNet.Identifier.Replace("~", "_");
+                        port.ConnectedNet.Identifier = port.ConnectedNet.Identifier.Replace(".", "_");
+                    }
                 }
             }
 
@@ -59,116 +59,11 @@ namespace QuartusAnalyzer
                 foreach (var lineParser in ParsingRules.ParsingRulesDictionary[context.AnalyzerState])
                     if (lineParser(line, parts, context))
                         break;
-
-                //string portId;
-                //Net net;
-
-                //switch (analyzerState)
-                //{
-                //    case AnalyzerState.Default:
-                //        if (parts[0] == "module" && !line.Contains(";"))
-                //        {
-                //            moduleDescription = new ModuleDescription(parts[1]);
-                //            analyzerState = AnalyzerState.ScanningModuleDescriptionPorts;
-                //            continue;
-                //        }
-
-                //        if (parts[0] == "input" || parts[0] == "output")
-                //        {
-                //            portId = parts[1].RemoveAll(";");
-                //            Enum.TryParse(parts[0], true, out NetType portType);
-                //            moduleDescription.Nets.First(p => p.Identifier == portId).NetType = portType;
-                //            continue;
-                //        }
-
-                //        var netTypeNames = Enum.GetNames(typeof(NetType)).Select(x => x.ToLower());
-                //        if (netTypeNames.Contains(parts[0]))
-                //        {
-                //            Enum.TryParse(parts[0], true, out NetType netType);
-                //            net = new Net(parts[1].RemoveFirst("\\").RemoveAll(";"), netType);
-                //            moduleDescription.Nets.Add(net);
-                //            continue;
-                //        }
-
-                //        if (parts[0] == "assign")
-                //        {
-                //            var rightPart = line.SubstringBetween("=", ";").RemoveFirst("\\").Trim();
-                //            var rightPartNet = moduleDescription.Nets.FirstOrDefault(n => n.Identifier == rightPart);
-                //            net = moduleDescription.Nets.FirstOrDefault(n => n.Identifier == parts[1]);
-
-                //            if (rightPartNet != null)
-                //            {
-                //                net.Identifier = rightPartNet.Identifier;
-                //                moduleDescription.Nets.Remove(rightPartNet);
-                //            }
-                //            else
-                //                net.Value = rightPart;
-
-                //            continue;
-                //        }
-
-                //        if (parts[0] == "initial")
-                //            continue;
-
-                //        if (parts[0] == "defparam")
-                //        {
-                //            var instantiationId = parts[1].RemoveFirst("\\");
-                //            var paramId = parts[2].RemoveFirst(".");
-                //            var paramValue = parts[4].RemoveAll(";");
-                //            var instantiation = moduleDescription.ModuleInstantiations
-                //                .First(i => i.Identifier == instantiationId);
-                //            instantiation.Parameters.Add(new ModuleParameter(paramId, paramValue));
-                //            continue;
-                //        }
-
-                //        if (line.Contains("(") && !line.Contains(")"))
-                //        {
-                //            currentModuleInstantiation = new ModuleInstantiation(parts[0], parts[1].RemoveAll("\\").RemoveAll("("));
-                //            analyzerState = AnalyzerState.ScanningModuleInstantiationPorts;
-                //            continue;
-                //        }
-
-                //        continue;
-
-                //    case AnalyzerState.ScanningModuleDescriptionPorts:
-                //        if (parts[0].Contains(";"))
-                //            analyzerState = AnalyzerState.Default;
-
-                //        portId = parts[0].RemoveAll(",", ";", ")").Trim();
-
-                //        moduleDescription.Nets.Add(new Net(portId));
-
-                //        continue;
-
-                //    case AnalyzerState.ScanningModuleInstantiationPorts:
-                //        if (line.Contains(";"))
-                //        {
-                //            moduleDescription.ModuleInstantiations.Add(currentModuleInstantiation);
-                //            analyzerState = AnalyzerState.Default;
-                //        }
-
-                //        portId = line.SubstringBetween(".", "(");
-                //        var port = new Net(portId);
-                //        string portArgument;
-                //        if (line.Contains("{") && line.Contains("}"))
-                //            portArgument = line.SubstringBetween("{", "}");
-                //        else
-                //            portArgument = line.SubstringBetween("(", ")").RemoveFirst("\\").TrimEnd();
-                //        net = moduleDescription.Nets.FirstOrDefault(n => n.Identifier == portArgument);
-                //        if (net != null)
-                //            port.ConnectedNet = net;
-                //        else
-                //            port.Value = portArgument;
-
-                //        currentModuleInstantiation.Ports.Add(port);
-
-                //        continue;
-                //}
             }
 
-            var result = new QuartusScheme { Module = context.ModuleDescription };
+            var result = new QuartusScheme(context.ModuleDescription);
 
-            result = PostProcess(result);
+            //result = PostProcess(result);
 
             return result;
         }

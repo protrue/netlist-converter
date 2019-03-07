@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace QuartusAnalyzer
 {
     public static class StringExtensions
     {
         public static string RemoveAll(this string text, params string[] stringsToRemove) =>
-        stringsToRemove.Aggregate(text,
-            (current, stringToRemove) => current.Replace(stringToRemove, string.Empty));
+            stringsToRemove.Aggregate(
+                text,
+                (current, stringToRemove) =>
+                    current.Replace(stringToRemove, string.Empty));
 
         public static string RemoveFirst(this string text, string stringToRemove)
         {

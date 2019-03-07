@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BooleanHelper.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="KovchegScheme.cs" />
     <Compile Include="SynthesisContext.cs" />

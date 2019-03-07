@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KovchegSynthesizer
+﻿namespace KovchegSynthesizer
 {
     public class SynthesisContext
     {
-        private int _instanseCounter;
+        private int _instanceCounter;
         private int _netCounter;
 
-        public int InstanceCounter => _instanseCounter++;
+        public int InstanceCounter => _instanceCounter++;
 
         public int NetCounter => _netCounter++;
 
         public SynthesisContext()
         {
-            _instanseCounter= 0;
+            _instanceCounter= 0;
             _netCounter = 0;
         }
     }

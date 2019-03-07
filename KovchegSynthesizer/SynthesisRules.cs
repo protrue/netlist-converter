@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VerilogObjectModel;
 
 namespace KovchegSynthesizer
 {
     public class SynthesisRules
     {
-        public static List<Converter> SynthesisRulesList { get; set; }
+        public static List<Converter> SynthesisRulesList { get; }
 
         static SynthesisRules()
         {
@@ -69,7 +67,7 @@ namespace KovchegSynthesizer
                     function = function.Reverse().ToArray();
 
                     var isConjunctive = function.Count(v => v == false) < function.Count(v => v == true);
-                    var normalForm = Synthesizer.GetNormalFormVariableRows(function, isConjunctive)
+                    var normalForm = BooleanHelper.GetNormalFormVariableRows(function, isConjunctive)
                         .Select(r => r.Reverse().ToArray()).ToArray();
 
                     var inversionNeeded = new bool[4];

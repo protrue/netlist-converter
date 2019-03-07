@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuartusToKovchegApplication
@@ -90,7 +83,7 @@ namespace QuartusToKovchegApplication
 
             //richTextBox.Text += "Трансляция успешно завершена";
 
-            richTextBox.Text = QuartusToKovchegTranslator.Translator.LastListing;
+            richTextBox.Text = $"{QuartusToKovchegTranslator.Translator.LastQuartusText}\n\n{QuartusToKovchegTranslator.Translator.LastQuartusScheme}\n\n{QuartusToKovchegTranslator.Translator.LastKovchegScheme}\n\n{QuartusToKovchegTranslator.Translator.LastKovchegText}";
         }
     }
 }

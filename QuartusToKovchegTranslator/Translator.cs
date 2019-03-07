@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuartusAnalyzer;
+﻿using QuartusAnalyzer;
 using KovchegSynthesizer;
 
 namespace QuartusToKovchegTranslator
 {
     public static class Translator
     {
-        public static string LastListing;
+        public static string LastQuartusText { get; private set; }
+        public static QuartusScheme LastQuartusScheme { get; private set; }
+        public static KovchegScheme LastKovchegScheme { get; private set; }
+        public static string LastKovchegText { get; private set; }
 
         public static string Translate(string text)
         {
-            var quartusScheme = Analyzer.Analyze(text);
-            var kovchegScheme = Synthesizer.SynthesizeScheme(quartusScheme);
-            var kovchegText = Synthesizer.SynthesizeText(kovchegScheme);
+            LastQuartusText = text;
+            LastQuartusScheme = Analyzer.Analyze(LastQuartusText);
+            LastKovchegScheme = Synthesizer.SynthesizeScheme(LastQuartusScheme);
+            LastKovchegText = Synthesizer.SynthesizeText(LastKovchegScheme);
 
-            LastListing = $"{quartusScheme}\n\n{kovchegScheme}\n\n{kovchegText}";
-
-            return kovchegText;
+            return LastKovchegText;
         }
     }
 }

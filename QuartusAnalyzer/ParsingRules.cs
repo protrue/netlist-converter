@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using VerilogObjectModel;
 
 namespace QuartusAnalyzer
@@ -47,8 +44,8 @@ namespace QuartusAnalyzer
                         Enum.TryParse(parts[0], true, out NetType netType);
                         var net = new Net(parts[1].RemoveFirst("\\").RemoveAll(";"), netType);
                         context.ModuleDescription.Nets.Add(net);
-                        return true;
 
+                        return true;
                     },
 
                     (line, parts, context) =>
@@ -86,8 +83,7 @@ namespace QuartusAnalyzer
                         var instantiation = context.ModuleDescription.ModuleInstantiations
                             .First(i => i.Identifier == instantiationId);
                         instantiation.Parameters.Add(new ModuleParameter(paramId, paramValue));
-                            
-
+                        
                         return true;
                     },
 
