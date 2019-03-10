@@ -60,7 +60,7 @@ namespace QuartusToKovchegApplication
             if (dialogResult == DialogResult.OK)
             {
                 _pathToKovchegFile = saveFileDialog.FileName;
-                textBoxInputFilePath.Text = saveFileDialog.FileName;
+                textBoxOutputFilePath.Text = saveFileDialog.FileName;
             }
         }
 
