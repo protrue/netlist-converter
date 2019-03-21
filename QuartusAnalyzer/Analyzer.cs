@@ -8,7 +8,7 @@ namespace QuartusAnalyzer
         private static string[] PreProcess(string text)
         {
             text = text.RemoveAll("\t");
-            var lines = text.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var lines = text.Split(new[] { Environment.NewLine, "\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             lines = lines.Select(l => l.Trim().Replace("~", "_")).ToList();
             
             lines.RemoveAll(l => l.StartsWith("//") || l.StartsWith("`"));
