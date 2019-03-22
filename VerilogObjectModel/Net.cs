@@ -8,6 +8,8 @@
 
         public Net ConnectedNet { get; set; }
 
+        public bool IsConnectedNetNegated { get; set; }
+
         public Net(string identifier, NetType netType = NetType.Unknown, Net connectedNet = null) : base(identifier)
         {
             NetType = netType;

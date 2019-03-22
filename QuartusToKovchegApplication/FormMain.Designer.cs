@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.textBoxInputFilePath = new System.Windows.Forms.TextBox();
@@ -39,7 +40,9 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxQuartusFile = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelQuartusFile = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxKovchegFile = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelKovchegFile = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxView = new System.Windows.Forms.GroupBox();
             this.tabControlView = new System.Windows.Forms.TabControl();
             this.tabPageQuartus = new System.Windows.Forms.TabPage();
@@ -48,33 +51,31 @@
             this.richTextBoxKovchegScheme = new System.Windows.Forms.RichTextBox();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanelQuartusFile = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelKovchegFile = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelMain.SuspendLayout();
             this.groupBoxQuartusFile.SuspendLayout();
+            this.tableLayoutPanelQuartusFile.SuspendLayout();
             this.groupBoxKovchegFile.SuspendLayout();
+            this.tableLayoutPanelKovchegFile.SuspendLayout();
             this.groupBoxView.SuspendLayout();
             this.tabControlView.SuspendLayout();
             this.tabPageQuartus.SuspendLayout();
             this.tabPageKovcheg.SuspendLayout();
             this.tabPageLog.SuspendLayout();
-            this.tableLayoutPanelQuartusFile.SuspendLayout();
-            this.tableLayoutPanelKovchegFile.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip.Size = new System.Drawing.Size(784, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
             // statusStrip
             // 
-            this.statusStrip.Location = new System.Drawing.Point(0, 503);
+            this.statusStrip.Location = new System.Drawing.Point(0, 539);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(842, 22);
+            this.statusStrip.Size = new System.Drawing.Size(784, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -83,7 +84,7 @@
             this.textBoxInputFilePath.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxInputFilePath.Location = new System.Drawing.Point(3, 3);
             this.textBoxInputFilePath.Name = "textBoxInputFilePath";
-            this.textBoxInputFilePath.Size = new System.Drawing.Size(824, 20);
+            this.textBoxInputFilePath.Size = new System.Drawing.Size(766, 20);
             this.textBoxInputFilePath.TabIndex = 3;
             // 
             // textBoxOutputFilePath
@@ -91,12 +92,12 @@
             this.textBoxOutputFilePath.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxOutputFilePath.Location = new System.Drawing.Point(3, 3);
             this.textBoxOutputFilePath.Name = "textBoxOutputFilePath";
-            this.textBoxOutputFilePath.Size = new System.Drawing.Size(824, 20);
+            this.textBoxOutputFilePath.Size = new System.Drawing.Size(766, 20);
             this.textBoxOutputFilePath.TabIndex = 5;
             // 
             // buttonSetInputFile
             // 
-            this.buttonSetInputFile.Location = new System.Drawing.Point(3, 38);
+            this.buttonSetInputFile.Location = new System.Drawing.Point(3, 40);
             this.buttonSetInputFile.Name = "buttonSetInputFile";
             this.buttonSetInputFile.Size = new System.Drawing.Size(100, 25);
             this.buttonSetInputFile.TabIndex = 7;
@@ -148,7 +149,7 @@
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(842, 479);
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(784, 515);
             this.tableLayoutPanelMain.TabIndex = 10;
             // 
             // groupBoxQuartusFile
@@ -157,10 +158,25 @@
             this.groupBoxQuartusFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxQuartusFile.Location = new System.Drawing.Point(3, 3);
             this.groupBoxQuartusFile.Name = "groupBoxQuartusFile";
-            this.groupBoxQuartusFile.Size = new System.Drawing.Size(836, 94);
+            this.groupBoxQuartusFile.Size = new System.Drawing.Size(778, 94);
             this.groupBoxQuartusFile.TabIndex = 0;
             this.groupBoxQuartusFile.TabStop = false;
             this.groupBoxQuartusFile.Text = "Файл схемы из Quartus";
+            // 
+            // tableLayoutPanelQuartusFile
+            // 
+            this.tableLayoutPanelQuartusFile.ColumnCount = 1;
+            this.tableLayoutPanelQuartusFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelQuartusFile.Controls.Add(this.textBoxInputFilePath, 0, 0);
+            this.tableLayoutPanelQuartusFile.Controls.Add(this.buttonSetInputFile, 0, 1);
+            this.tableLayoutPanelQuartusFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelQuartusFile.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanelQuartusFile.Name = "tableLayoutPanelQuartusFile";
+            this.tableLayoutPanelQuartusFile.RowCount = 2;
+            this.tableLayoutPanelQuartusFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelQuartusFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelQuartusFile.Size = new System.Drawing.Size(772, 75);
+            this.tableLayoutPanelQuartusFile.TabIndex = 8;
             // 
             // groupBoxKovchegFile
             // 
@@ -168,10 +184,25 @@
             this.groupBoxKovchegFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxKovchegFile.Location = new System.Drawing.Point(3, 103);
             this.groupBoxKovchegFile.Name = "groupBoxKovchegFile";
-            this.groupBoxKovchegFile.Size = new System.Drawing.Size(836, 94);
+            this.groupBoxKovchegFile.Size = new System.Drawing.Size(778, 94);
             this.groupBoxKovchegFile.TabIndex = 1;
             this.groupBoxKovchegFile.TabStop = false;
             this.groupBoxKovchegFile.Text = "Файл схемы для Ковчег";
+            // 
+            // tableLayoutPanelKovchegFile
+            // 
+            this.tableLayoutPanelKovchegFile.ColumnCount = 1;
+            this.tableLayoutPanelKovchegFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelKovchegFile.Controls.Add(this.textBoxOutputFilePath, 0, 0);
+            this.tableLayoutPanelKovchegFile.Controls.Add(this.buttonSetOutputFile, 0, 1);
+            this.tableLayoutPanelKovchegFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelKovchegFile.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanelKovchegFile.Name = "tableLayoutPanelKovchegFile";
+            this.tableLayoutPanelKovchegFile.RowCount = 2;
+            this.tableLayoutPanelKovchegFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelKovchegFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelKovchegFile.Size = new System.Drawing.Size(772, 75);
+            this.tableLayoutPanelKovchegFile.TabIndex = 9;
             // 
             // groupBoxView
             // 
@@ -179,7 +210,7 @@
             this.groupBoxView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxView.Location = new System.Drawing.Point(3, 243);
             this.groupBoxView.Name = "groupBoxView";
-            this.groupBoxView.Size = new System.Drawing.Size(836, 233);
+            this.groupBoxView.Size = new System.Drawing.Size(778, 269);
             this.groupBoxView.TabIndex = 2;
             this.groupBoxView.TabStop = false;
             this.groupBoxView.Text = "Просмотр";
@@ -193,7 +224,7 @@
             this.tabControlView.Location = new System.Drawing.Point(3, 16);
             this.tabControlView.Name = "tabControlView";
             this.tabControlView.SelectedIndex = 0;
-            this.tabControlView.Size = new System.Drawing.Size(830, 214);
+            this.tabControlView.Size = new System.Drawing.Size(772, 250);
             this.tabControlView.TabIndex = 0;
             // 
             // tabPageQuartus
@@ -202,7 +233,7 @@
             this.tabPageQuartus.Location = new System.Drawing.Point(4, 22);
             this.tabPageQuartus.Name = "tabPageQuartus";
             this.tabPageQuartus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageQuartus.Size = new System.Drawing.Size(822, 191);
+            this.tabPageQuartus.Size = new System.Drawing.Size(764, 224);
             this.tabPageQuartus.TabIndex = 0;
             this.tabPageQuartus.Text = "Схема из Quartus";
             this.tabPageQuartus.UseVisualStyleBackColor = true;
@@ -213,7 +244,7 @@
             this.richTextBoxQuartusScheme.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxQuartusScheme.Name = "richTextBoxQuartusScheme";
             this.richTextBoxQuartusScheme.ReadOnly = true;
-            this.richTextBoxQuartusScheme.Size = new System.Drawing.Size(816, 185);
+            this.richTextBoxQuartusScheme.Size = new System.Drawing.Size(758, 218);
             this.richTextBoxQuartusScheme.TabIndex = 0;
             this.richTextBoxQuartusScheme.Text = "";
             // 
@@ -223,7 +254,7 @@
             this.tabPageKovcheg.Location = new System.Drawing.Point(4, 22);
             this.tabPageKovcheg.Name = "tabPageKovcheg";
             this.tabPageKovcheg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKovcheg.Size = new System.Drawing.Size(822, 191);
+            this.tabPageKovcheg.Size = new System.Drawing.Size(822, 188);
             this.tabPageKovcheg.TabIndex = 1;
             this.tabPageKovcheg.Text = "Схема для Ковчег";
             this.tabPageKovcheg.UseVisualStyleBackColor = true;
@@ -234,7 +265,7 @@
             this.richTextBoxKovchegScheme.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxKovchegScheme.Name = "richTextBoxKovchegScheme";
             this.richTextBoxKovchegScheme.ReadOnly = true;
-            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(816, 185);
+            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(816, 182);
             this.richTextBoxKovchegScheme.TabIndex = 0;
             this.richTextBoxKovchegScheme.Text = "";
             // 
@@ -258,59 +289,31 @@
             this.richTextBoxLog.TabIndex = 5;
             this.richTextBoxLog.Text = "";
             // 
-            // tableLayoutPanelQuartusFile
-            // 
-            this.tableLayoutPanelQuartusFile.ColumnCount = 1;
-            this.tableLayoutPanelQuartusFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelQuartusFile.Controls.Add(this.textBoxInputFilePath, 0, 0);
-            this.tableLayoutPanelQuartusFile.Controls.Add(this.buttonSetInputFile, 0, 1);
-            this.tableLayoutPanelQuartusFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelQuartusFile.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanelQuartusFile.Name = "tableLayoutPanelQuartusFile";
-            this.tableLayoutPanelQuartusFile.RowCount = 2;
-            this.tableLayoutPanelQuartusFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelQuartusFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelQuartusFile.Size = new System.Drawing.Size(830, 75);
-            this.tableLayoutPanelQuartusFile.TabIndex = 8;
-            // 
-            // tableLayoutPanelKovchegFile
-            // 
-            this.tableLayoutPanelKovchegFile.ColumnCount = 1;
-            this.tableLayoutPanelKovchegFile.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelKovchegFile.Controls.Add(this.textBoxOutputFilePath, 0, 0);
-            this.tableLayoutPanelKovchegFile.Controls.Add(this.buttonSetOutputFile, 0, 1);
-            this.tableLayoutPanelKovchegFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelKovchegFile.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanelKovchegFile.Name = "tableLayoutPanelKovchegFile";
-            this.tableLayoutPanelKovchegFile.RowCount = 2;
-            this.tableLayoutPanelKovchegFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelKovchegFile.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelKovchegFile.Size = new System.Drawing.Size(830, 75);
-            this.tableLayoutPanelKovchegFile.TabIndex = 9;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 525);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Преобразователь схем";
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.groupBoxQuartusFile.ResumeLayout(false);
+            this.tableLayoutPanelQuartusFile.ResumeLayout(false);
+            this.tableLayoutPanelQuartusFile.PerformLayout();
             this.groupBoxKovchegFile.ResumeLayout(false);
+            this.tableLayoutPanelKovchegFile.ResumeLayout(false);
+            this.tableLayoutPanelKovchegFile.PerformLayout();
             this.groupBoxView.ResumeLayout(false);
             this.tabControlView.ResumeLayout(false);
             this.tabPageQuartus.ResumeLayout(false);
             this.tabPageKovcheg.ResumeLayout(false);
             this.tabPageLog.ResumeLayout(false);
-            this.tableLayoutPanelQuartusFile.ResumeLayout(false);
-            this.tableLayoutPanelQuartusFile.PerformLayout();
-            this.tableLayoutPanelKovchegFile.ResumeLayout(false);
-            this.tableLayoutPanelKovchegFile.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

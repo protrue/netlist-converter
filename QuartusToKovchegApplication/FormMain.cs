@@ -20,6 +20,9 @@ namespace QuartusToKovchegApplication
 
             textBoxInputFilePath.Text = _defaultQuartusFilePath;
             textBoxOutputFilePath.Text = _defaultKovchegFilePath;
+
+            if (File.Exists(textBoxInputFilePath.Text))
+                richTextBoxQuartusScheme.Text = File.ReadAllText(textBoxInputFilePath.Text);
         }
 
         private void ButtonSetInputFileClick(object sender, EventArgs e)
@@ -83,7 +86,6 @@ namespace QuartusToKovchegApplication
                 Environment.NewLine,
                 $"Объектное представление схемы для Ковчег:",
                 JsonConvert.SerializeObject(QuartusToKovchegTranslator.Translator.LastKovchegScheme, Formatting.Indented));
-
         }
     }
 }
