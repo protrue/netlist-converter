@@ -62,7 +62,7 @@ namespace QuartusToKovchegApplication
 
         private void ButtonTranslateClick(object sender, EventArgs e)
         {
-            try
+            //try
             {
                 var quartusText = richTextBoxQuartusScheme.Text;
                 var kovchegText = QuartusToKovchegTranslator.Translator.Translate(quartusText);
@@ -74,11 +74,11 @@ namespace QuartusToKovchegApplication
 
                 File.WriteAllText(textBoxOutputFilePath.Text, kovchegText);
             }
-            catch (Exception exception)
-            {
-                richTextBoxLog.Text += GetFullExceptionTrace(exception) + Environment.NewLine + Environment.NewLine;
-                tabControlView.SelectedTab = tabPageLog;
-            }
+            //catch (Exception exception)
+            //{
+            //    richTextBoxLog.Text += GetFullExceptionTrace(exception) + Environment.NewLine + Environment.NewLine;
+            //    tabControlView.SelectedTab = tabPageLog;
+            //}
 
             richTextBoxLog.Text += string.Join(Environment.NewLine,
                 $"Объектное представление схемы из Quartus:",

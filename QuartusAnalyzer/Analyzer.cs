@@ -39,7 +39,7 @@ namespace QuartusAnalyzer
                     }
                 }
             }
-
+            
             return quartusScheme;
         }
 
@@ -63,7 +63,7 @@ namespace QuartusAnalyzer
 
             var result = new QuartusScheme(context.ModuleDescription);
 
-            //result = PostProcess(result);
+            result = PostProcess(result);
 
             return result;
         }

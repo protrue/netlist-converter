@@ -15,14 +15,14 @@ namespace QuartusToKovchegTranslator
         {
             LastQuartusText = text;
 
-            try
+            //try
             {
                 LastQuartusScheme = Analyzer.Analyze(LastQuartusText);
             }
-            catch (Exception exception)
-            {
-                throw new Exception("Ошибка при разборе файла схемы из Quartus", exception);
-            }
+            //catch (Exception exception)
+            //{
+            //    throw new Exception("Ошибка при разборе файла схемы из Quartus", exception);
+            //}
 
             try
             {
