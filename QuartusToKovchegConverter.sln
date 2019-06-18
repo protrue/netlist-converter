@@ -9,9 +9,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KovchegSynthesizer", "Kovch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartusAnalyzer", "QuartusAnalyzer\QuartusAnalyzer.csproj", "{62CC58CA-C641-427D-9D2C-AABFA4A38D7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartusToKovchegApplication", "QuartusToKovchegApplication\QuartusToKovchegApplication.csproj", "{019DB195-F9D4-4F8A-B957-F83C1C81A711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gui", "Gui\Gui.csproj", "{019DB195-F9D4-4F8A-B957-F83C1C81A711}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerilogNetlistModel", "VerilogNetlistModel\VerilogNetlistModel.csproj", "{035A2FF1-C5C3-4829-AF77-3158FF71FD70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer", "Analyzer\Analyzer.csproj", "{1525282A-4202-4581-81DF-75BB515E6C51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Converter.csproj", "{8682D7AE-711A-4B47-99BD-BF76C4B451AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{CAD8A292-2D96-4618-AE20-7CA7165D876E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cli", "Cli\Cli.csproj", "{3EBB3F97-A840-49AE-A066-D7F3024E56C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,22 @@ Global
 		{035A2FF1-C5C3-4829-AF77-3158FF71FD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035A2FF1-C5C3-4829-AF77-3158FF71FD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035A2FF1-C5C3-4829-AF77-3158FF71FD70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1525282A-4202-4581-81DF-75BB515E6C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1525282A-4202-4581-81DF-75BB515E6C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1525282A-4202-4581-81DF-75BB515E6C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1525282A-4202-4581-81DF-75BB515E6C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8682D7AE-711A-4B47-99BD-BF76C4B451AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8682D7AE-711A-4B47-99BD-BF76C4B451AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8682D7AE-711A-4B47-99BD-BF76C4B451AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8682D7AE-711A-4B47-99BD-BF76C4B451AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD8A292-2D96-4618-AE20-7CA7165D876E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD8A292-2D96-4618-AE20-7CA7165D876E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD8A292-2D96-4618-AE20-7CA7165D876E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD8A292-2D96-4618-AE20-7CA7165D876E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBB3F97-A840-49AE-A066-D7F3024E56C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBB3F97-A840-49AE-A066-D7F3024E56C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBB3F97-A840-49AE-A066-D7F3024E56C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBB3F97-A840-49AE-A066-D7F3024E56C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
