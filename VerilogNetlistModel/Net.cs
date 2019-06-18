@@ -1,7 +1,9 @@
-﻿namespace VerilogObjectModel
+﻿namespace VerilogNetlistModel
 {
-    public class Net : VerilogElement
+    public class Net : IIdentifiable
     {
+        public string Identifier { get; set; }
+
         public NetType NetType { get; set; }
 
         public string Value { get; set; }
@@ -12,6 +14,7 @@
 
         public Net(string identifier, NetType netType = NetType.Unknown, Net connectedNet = null) : base(identifier)
         {
+            Identifier = identifier;
             NetType = netType;
             ConnectedNet = connectedNet;
         }

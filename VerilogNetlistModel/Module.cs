@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace VerilogObjectModel
+namespace VerilogNetlistModel
 {
-    public class ModuleDescription : VerilogElement
+    public class Module : IIdentifiable
     {
+        public string Identifier { get; set; }
+
         public List<Net> Nets { get; set; }
 
         public IEnumerable<Net> Ports
@@ -15,21 +17,22 @@ namespace VerilogObjectModel
                 n.NetType == NetType.Output);
         }
 
-        public List<ModuleInstantiation> ModuleInstantiations { get; set; }
+        public List<Instance> Instances { get; set; }
 
-        public ModuleDescription(string identifier) : base(identifier)
+        public Module(string identifier)
         {
+            Identifier = identifier;
             Nets = new List<Net>();
-            ModuleInstantiations = new List<ModuleInstantiation>();
+            Instances = new List<Instance>();
         }
-        
+
         public Net SetNetType(string netId, NetType netType)
         {
             var net = Nets.First(p => p.Identifier == netId);
             net.NetType = netType;
             return net;
         }
-        
-        public override string ToString() => $"{Identifier} ({string.Join(" ", Ports)}) \n<{string.Join(" ", Nets)}> \n[{string.Join(" \n", ModuleInstantiations)}]";
+
+        public override string ToString() => $"{Identifier} ({string.Join(" ", Ports)}) \n<{string.Join(" ", Nets)}> \n[{string.Join(" \n", Instances)}]";
     }
 }

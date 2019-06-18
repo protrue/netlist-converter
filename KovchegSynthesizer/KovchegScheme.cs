@@ -1,19 +1,19 @@
-﻿using VerilogObjectModel;
+﻿using VerilogNetlistModel;
 
 namespace KovchegSynthesizer
 {
     public class KovchegScheme
     {
-        public ModuleDescription ModuleDescription { get; set; }
+        public Module Module { get; set; }
 
-        public KovchegScheme(ModuleDescription moduleDescription)
+        public KovchegScheme(Module module)
         {
-            ModuleDescription = moduleDescription;
+            Module = module;
         }
 
         public override string ToString()
         {
-            return ModuleDescription.ToString();
+            return Module.ToString();
         }
     }
 }

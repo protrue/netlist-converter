@@ -53,9 +53,9 @@
       <Project>{62cc58ca-c641-427d-9d2c-aabfa4a38d7b}</Project>
       <Name>QuartusAnalyzer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VerilogObjectModel\VerilogObjectModel.csproj">
+    <ProjectReference Include="..\VerilogObjectModel\VerilogNetlistModel.csproj">
       <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
-      <Name>VerilogObjectModel</Name>
+      <Name>VerilogNetlistModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

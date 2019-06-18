@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartusAnalyzer", "QuartusA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartusToKovchegApplication", "QuartusToKovchegApplication\QuartusToKovchegApplication.csproj", "{019DB195-F9D4-4F8A-B957-F83C1C81A711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerilogObjectModel", "VerilogObjectModel\VerilogObjectModel.csproj", "{035A2FF1-C5C3-4829-AF77-3158FF71FD70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerilogNetlistModel", "VerilogNetlistModel\VerilogNetlistModel.csproj", "{035A2FF1-C5C3-4829-AF77-3158FF71FD70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

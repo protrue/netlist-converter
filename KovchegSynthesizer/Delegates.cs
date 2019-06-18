@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using VerilogObjectModel;
+using VerilogNetlistModel;
 
 namespace KovchegSynthesizer
 {
-    public delegate List<ModuleInstantiation> Converter(ModuleInstantiation quartusInstance, SynthesisContext context);
+    public delegate List<Instance> Converter(Instance quartusInstance, SynthesisContext context);
 }

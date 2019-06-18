@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VerilogObjectModel;
+using VerilogNetlistModel;
 
 namespace QuartusAnalyzer
 {
@@ -19,7 +19,7 @@ namespace QuartusAnalyzer
                     {
                         if (!(parts[0] == "module" && !line.Contains(";"))) return false;
 
-                        context.ModuleDescription = new ModuleDescription(parts[1]);
+                        context.Module = new Module(parts[1]);
                         context.AnalyzerState = AnalyzerState.ScanningModuleDescriptionPorts;
                         return true;
                     },
@@ -30,7 +30,7 @@ namespace QuartusAnalyzer
 
                         var portId = parts[1].RemoveAll(";");
                         Enum.TryParse(parts[0], true, out NetType portType);
-                        context.ModuleDescription.Nets.First(p => p.Identifier == portId).NetType = portType;
+                        context.Module.Nets.First(p => p.Identifier == portId).NetType = portType;
 
                         return true;
                     },
@@ -43,7 +43,7 @@ namespace QuartusAnalyzer
 
                         Enum.TryParse(parts[0], true, out NetType netType);
                         var net = new Net(parts[1].RemoveFirst("\\").RemoveAll(";"), netType);
-                        context.ModuleDescription.Nets.Add(net);
+                        context.Module.Nets.Add(net);
 
                         return true;
                     },
@@ -53,13 +53,13 @@ namespace QuartusAnalyzer
                         if (parts[0] != "assign") return false;
 
                         var rightPart = line.SubstringBetween("=", ";").RemoveFirst("\\").Trim();
-                        var rightPartNet = context.ModuleDescription.Nets.FirstOrDefault(n => n.Identifier == rightPart);
-                        var net = context.ModuleDescription.Nets.First(n => n.Identifier == parts[1]);
+                        var rightPartNet = context.Module.Nets.FirstOrDefault(n => n.Identifier == rightPart);
+                        var net = context.Module.Nets.First(n => n.Identifier == parts[1]);
 
                         if (rightPartNet != null)
                         {
                             net.Identifier = rightPartNet.Identifier;
-                            context.ModuleDescription.Nets.Remove(rightPartNet);
+                            context.Module.Nets.Remove(rightPartNet);
                         }
                         else
                             net.Value = rightPart;
@@ -80,9 +80,9 @@ namespace QuartusAnalyzer
                         var instantiationId = parts[1].RemoveFirst("\\");
                         var paramId = parts[2].RemoveFirst(".");
                         var paramValue = parts[4].RemoveAll(";");
-                        var instantiation = context.ModuleDescription.ModuleInstantiations
+                        var instantiation = context.Module.Instances
                             .First(i => i.Identifier == instantiationId);
-                        instantiation.Parameters.Add(new ModuleParameter(paramId, paramValue));
+                        instantiation.Parameters.Add(new Parameter(paramId, paramValue));
                         
                         return true;
                     },
@@ -91,7 +91,7 @@ namespace QuartusAnalyzer
                     {
                         if (!(line.Contains("(") && !line.Contains(")"))) return false;
 
-                        context.ModuleInstantiation = new ModuleInstantiation(parts[0], parts[1].RemoveAll("\\").RemoveAll("("));
+                        context.Instance = new Instance(parts[0], parts[1].RemoveAll("\\").RemoveAll("("));
                         context.AnalyzerState = AnalyzerState.ScanningModuleInstantiationPorts;
                         return true;
                     }
@@ -106,7 +106,7 @@ namespace QuartusAnalyzer
 
                         var portId = parts[0].RemoveAll(",", ";", ")").Trim();
 
-                        context.ModuleDescription.Nets.Add(new Net(portId));
+                        context.Module.Nets.Add(new Net(portId));
 
                         return true;
                     }
@@ -118,7 +118,7 @@ namespace QuartusAnalyzer
                     {
                         if (line.Contains(";"))
                         {
-                            context.ModuleDescription.ModuleInstantiations.Add(context.ModuleInstantiation);
+                            context.Module.Instances.Add(context.Instance);
                             context.AnalyzerState = AnalyzerState.Default;
                         }
 
@@ -143,7 +143,7 @@ namespace QuartusAnalyzer
                         else
                             port.Value = portArgument;
 
-                        context.ModuleInstantiation.Ports.Add(port);
+                        context.Instance.Ports.Add(port);
 
                         return true;
                     })
