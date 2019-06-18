@@ -128,8 +128,16 @@ namespace QuartusAnalyzer
                         if (line.Contains("{") && line.Contains("}"))
                             portArgument = line.SubstringBetween("{", "}");
                         else
+                        {
                             portArgument = line.SubstringBetween("(", ")").RemoveFirst("\\").TrimEnd();
-                        var net = context.Module.Nets.FirstOrDefault(n => n.Identifier == portArgument);
+                            if (portArgument.Length > 0 && portArgument[0] == '!')
+                            {
+                                port.IsConnectedNetNegated = true;
+                                portArgument = portArgument.Remove(0, 1);
+                            }
+                        }
+
+                        var net = context.ModuleDescription.Nets.FirstOrDefault(n => n.Identifier == portArgument);
                         if (net != null)
                             port.ConnectedNet = net;
                         else

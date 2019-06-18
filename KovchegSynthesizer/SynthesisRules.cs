@@ -38,15 +38,29 @@ namespace KovchegSynthesizer
                         !instance.ModuleIdentifier.Contains("io_obuf"))
                         return null;
 
-                    var input = instance.Ports.First(p => p.Identifier == "i").ConnectedNet.Identifier;
-                    var output = instance.Ports.First(p => p.Identifier == "o").ConnectedNet.Identifier;
+                    var input = instance.Ports.First(p => p.Identifier == "i").ConnectedNet;
+                    var output = instance.Ports.First(p => p.Identifier == "o").ConnectedNet;
 
                     var kovchegBuffer = new Instance("BUF", "buf_" + context.InstanceCounter);
 
-                    kovchegBuffer.Ports.Add(new Net("I", NetType.Input, new Net(input, NetType.Wire)));
-                    kovchegBuffer.Ports.Add(new Net("O", NetType.Output, new Net(output, NetType.Wire)));
+                    var result = new List<ModuleInstantiation>();
 
-                    return new List<Instance> {kovchegBuffer};
+                    var bufferInput = input;
+                    if (instance.Ports.First(p => p.Identifier == "i").IsConnectedNetNegated)
+                    {
+                        var inverter = new ModuleInstantiation("INV", "inv_" + context.InstanceCounter);
+                        inverter.Ports.Add(new Net("I", NetType.Input, new Net(input.Identifier, NetType.Wire)));
+                        var inverterOutput = new Net("n_" + context.NetCounter, NetType.Wire);
+                        inverter.Ports.Add(new Net("O", NetType.Input, inverterOutput));
+                        bufferInput = inverterOutput;
+                        result.Add(inverter);
+                    }
+                    
+                    kovchegBuffer.Ports.Add(new Net("I", NetType.Input, bufferInput));
+                    kovchegBuffer.Ports.Add(new Net("O", NetType.Output, new Net(output.Identifier, NetType.Wire)));
+                    result.Add(kovchegBuffer);
+                    
+                    return result;
                 },
 
                 (instance, context) =>

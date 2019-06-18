@@ -1,4 +1,5 @@
-﻿using QuartusAnalyzer;
+﻿using System;
+using QuartusAnalyzer;
 using KovchegSynthesizer;
 
 namespace QuartusToKovchegTranslator
@@ -13,10 +14,26 @@ namespace QuartusToKovchegTranslator
         public static string Translate(string text)
         {
             LastQuartusText = text;
-            LastQuartusScheme = Analyzer.Analyze(LastQuartusText);
-            LastKovchegScheme = Synthesizer.SynthesizeScheme(LastQuartusScheme);
-            LastKovchegText = Synthesizer.SynthesizeText(LastKovchegScheme);
 
+            //try
+            {
+                LastQuartusScheme = Analyzer.Analyze(LastQuartusText);
+            }
+            //catch (Exception exception)
+            //{
+            //    throw new Exception("Ошибка при разборе файла схемы из Quartus", exception);
+            //}
+
+            try
+            {
+                LastKovchegScheme = Synthesizer.SynthesizeScheme(LastQuartusScheme);
+                LastKovchegText = Synthesizer.SynthesizeText(LastKovchegScheme);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Ошибка при конвертации схемы", exception);
+            }
+            
             return LastKovchegText;
         }
     }
