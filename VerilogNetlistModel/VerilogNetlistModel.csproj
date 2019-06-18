@@ -46,7 +46,7 @@
     <Compile Include="Net.cs" />
     <Compile Include="NetType.cs" />
     <Compile Include="Tools.cs" />
-    <Compile Include="VerilogElement.cs" />
+    <Compile Include="IIdentifiable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

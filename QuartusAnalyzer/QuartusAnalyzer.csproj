@@ -50,7 +50,7 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VerilogObjectModel\VerilogNetlistModel.csproj">
+    <ProjectReference Include="..\VerilogNetlistModel\VerilogNetlistModel.csproj">
       <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
       <Name>VerilogNetlistModel</Name>
     </ProjectReference>
