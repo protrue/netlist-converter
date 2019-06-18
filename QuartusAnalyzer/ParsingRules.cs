@@ -137,7 +137,7 @@ namespace QuartusAnalyzer
                             }
                         }
 
-                        var net = context.ModuleDescription.Nets.FirstOrDefault(n => n.Identifier == portArgument);
+                        var net = context.Module.Nets.FirstOrDefault(n => n.Identifier == portArgument);
                         if (net != null)
                             port.ConnectedNet = net;
                         else

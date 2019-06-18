@@ -43,12 +43,12 @@ namespace KovchegSynthesizer
 
                     var kovchegBuffer = new Instance("BUF", "buf_" + context.InstanceCounter);
 
-                    var result = new List<ModuleInstantiation>();
+                    var result = new List<Instance>();
 
                     var bufferInput = input;
                     if (instance.Ports.First(p => p.Identifier == "i").IsConnectedNetNegated)
                     {
-                        var inverter = new ModuleInstantiation("INV", "inv_" + context.InstanceCounter);
+                        var inverter = new Instance("INV", "inv_" + context.InstanceCounter);
                         inverter.Ports.Add(new Net("I", NetType.Input, new Net(input.Identifier, NetType.Wire)));
                         var inverterOutput = new Net("n_" + context.NetCounter, NetType.Wire);
                         inverter.Ports.Add(new Net("O", NetType.Input, inverterOutput));
