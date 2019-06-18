@@ -1,19 +1,19 @@
-﻿using VerilogObjectModel;
+﻿using VerilogNetlistModel;
 
 namespace QuartusAnalyzer
 {
     public class QuartusScheme
     {
-        public ModuleDescription ModuleDescription { get; set; }
+        public Module Module { get; set; }
 
-        public QuartusScheme(ModuleDescription moduleDescription)
+        public QuartusScheme(Module module)
         {
-            ModuleDescription = moduleDescription;
+            Module = module;
         }
 
         public override string ToString()
         {
-            return ModuleDescription.ToString();
+            return Module.ToString();
         }
     }
 }

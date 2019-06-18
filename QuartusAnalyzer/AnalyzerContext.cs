@@ -1,4 +1,4 @@
-﻿using VerilogObjectModel;
+﻿using VerilogNetlistModel;
 
 namespace QuartusAnalyzer
 {
@@ -6,15 +6,15 @@ namespace QuartusAnalyzer
     {
         public AnalyzerState AnalyzerState { get; set; }
 
-        public ModuleDescription ModuleDescription { get; set; }
+        public Module Module { get; set; }
 
-        public ModuleInstantiation ModuleInstantiation { get; set; }
+        public Instance Instance { get; set; }
 
         public AnalyzerContext()
         {
             AnalyzerState = AnalyzerState.Default;
-            ModuleDescription = null;
-            ModuleInstantiation = null;
+            Module = null;
+            Instance = null;
         }
     }
 }

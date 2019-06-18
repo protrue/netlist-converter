@@ -18,16 +18,16 @@ namespace QuartusAnalyzer
 
         private static QuartusScheme PostProcess(QuartusScheme quartusScheme)
         {
-            foreach (var net in quartusScheme.ModuleDescription.Nets)
+            foreach (var net in quartusScheme.Module.Nets)
             {
                 net.Identifier = net.Identifier.Replace("~", "_");
                 net.Identifier = net.Identifier.Replace(".", "_");
             }
 
-            foreach (var moduleModuleInstantiation in quartusScheme.ModuleDescription.ModuleInstantiations)
+            foreach (var moduleModuleInstantiation in quartusScheme.Module.Instances)
             {
-                moduleModuleInstantiation.ModuleDescriptionIdentifier = moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace("~", "_");
-                moduleModuleInstantiation.ModuleDescriptionIdentifier = moduleModuleInstantiation.ModuleDescriptionIdentifier.Replace(".", "_");
+                moduleModuleInstantiation.ModuleIdentifier = moduleModuleInstantiation.ModuleIdentifier.Replace("~", "_");
+                moduleModuleInstantiation.ModuleIdentifier = moduleModuleInstantiation.ModuleIdentifier.Replace(".", "_");
                 foreach (var port in moduleModuleInstantiation.Ports)
                 {
                     port.Identifier = port.Identifier.Replace("~", "_");
@@ -61,7 +61,7 @@ namespace QuartusAnalyzer
                         break;
             }
 
-            var result = new QuartusScheme(context.ModuleDescription);
+            var result = new QuartusScheme(context.Module);
 
             //result = PostProcess(result);
 

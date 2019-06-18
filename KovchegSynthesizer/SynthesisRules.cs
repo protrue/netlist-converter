@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using VerilogObjectModel;
+using VerilogNetlistModel;
 
 namespace KovchegSynthesizer
 {
@@ -15,9 +15,9 @@ namespace KovchegSynthesizer
             {
                 (instance, context) =>
                 {
-                    if (!instance.ModuleDescriptionIdentifier.Contains("dffeas")) return null;
+                    if (!instance.ModuleIdentifier.Contains("dffeas")) return null;
 
-                    var fdc = new ModuleInstantiation("FDC", "fdc_" + context.InstanceCounter);
+                    var fdc = new Instance("FDC", "fdc_" + context.InstanceCounter);
 
                     var clock = instance.Ports.First(p => p.Identifier == "clk").ConnectedNet.Identifier;
                     var clr = instance.Ports.First(p => p.Identifier == "clrn").ConnectedNet.Identifier;
@@ -29,29 +29,29 @@ namespace KovchegSynthesizer
                     fdc.Ports.Add(new Net("D", NetType.Input, new Net(dataInput, NetType.Wire)));
                     fdc.Ports.Add(new Net("Q", NetType.Output, new Net(dataOutput, NetType.Wire)));
 
-                    return new List<ModuleInstantiation> {fdc};
+                    return new List<Instance> {fdc};
                 },
 
                 (instance, context) =>
                 {
-                    if (!instance.ModuleDescriptionIdentifier.Contains("io_ibuf") &&
-                        !instance.ModuleDescriptionIdentifier.Contains("io_obuf"))
+                    if (!instance.ModuleIdentifier.Contains("io_ibuf") &&
+                        !instance.ModuleIdentifier.Contains("io_obuf"))
                         return null;
 
                     var input = instance.Ports.First(p => p.Identifier == "i").ConnectedNet.Identifier;
                     var output = instance.Ports.First(p => p.Identifier == "o").ConnectedNet.Identifier;
 
-                    var kovchegBuffer = new ModuleInstantiation("BUF", "buf_" + context.InstanceCounter);
+                    var kovchegBuffer = new Instance("BUF", "buf_" + context.InstanceCounter);
 
                     kovchegBuffer.Ports.Add(new Net("I", NetType.Input, new Net(input, NetType.Wire)));
                     kovchegBuffer.Ports.Add(new Net("O", NetType.Output, new Net(output, NetType.Wire)));
 
-                    return new List<ModuleInstantiation> {kovchegBuffer};
+                    return new List<Instance> {kovchegBuffer};
                 },
 
                 (instance, context) =>
                 {
-                    if (!instance.ModuleDescriptionIdentifier.Contains("lcell_comb")) return null;
+                    if (!instance.ModuleIdentifier.Contains("lcell_comb")) return null;
 
                     var lutMaskAsString = instance.Parameters.First(p => p.Identifier == "lut_mask").Value;
                     var lutMask = Tools.ParseVerilogNumber(lutMaskAsString);
@@ -76,7 +76,7 @@ namespace KovchegSynthesizer
                         for (var j = 0; j < row.Length; j++)
                             inversionNeeded[j] = !(isConjunctive && row[j] || !isConjunctive && !row[j]) || inversionNeeded[j];
 
-                    var result = new List<ModuleInstantiation>();
+                    var result = new List<Instance>();
 
                     //var netIdenifiers = new[] {"datad", "datac", "datab", "dataa"};
                     var netIdenifiers = new[] {"dataa", "datab", "datac", "datad"};
@@ -86,14 +86,14 @@ namespace KovchegSynthesizer
                         {
                             var input = instance.Ports.First(x => x.Identifier == netIdenifiers[i]).ConnectedNet
                                 .Identifier;
-                            var element = new ModuleInstantiation("INV", "inv_" + input + context.InstanceCounter);
+                            var element = new Instance("INV", "inv_" + input + context.InstanceCounter);
                             element.Ports.Add(new Net("I", NetType.Input, new Net(input, NetType.Wire)));
                             element.Ports.Add(new Net("O", NetType.Output,
                                 new Net("n_" + context.NetCounter, NetType.Wire)));
                             result.Add(element);
                         }
 
-                    var currentLevelElements = new List<ModuleInstantiation>();
+                    var currentLevelElements = new List<Instance>();
 
                     for (var i = 0; i < normalForm.Length; i++)
                     {
@@ -103,8 +103,8 @@ namespace KovchegSynthesizer
                             instancePorts[j] = instance.Ports.First(x => x.Identifier == netIdenifiers[j]).ConnectedNet.Identifier;
 
                         var element = isConjunctive ?
-                            new ModuleInstantiation("OR4", "or4_" + context.InstanceCounter) :
-                            new ModuleInstantiation("AND4", "and4_" + context.InstanceCounter);
+                            new Instance("OR4", "or4_" + context.InstanceCounter) :
+                            new Instance("AND4", "and4_" + context.InstanceCounter);
 
                         for (var j = 0; j < 4; j++)
                             if (!(normalForm[i][j] && isConjunctive || !normalForm[i][j] && !isConjunctive))
@@ -128,7 +128,7 @@ namespace KovchegSynthesizer
 
                     while (currentLevelElements.Count != 1)
                     {
-                        var nextLevelElements = new List<ModuleInstantiation>();
+                        var nextLevelElements = new List<Instance>();
 
                         if (currentLevelElements.Count % 2 == 1)
                         {
@@ -139,8 +139,8 @@ namespace KovchegSynthesizer
                         for (var i = 0; i < currentLevelElements.Count; i += 2)
                         {
                             var element = isConjunctive ?
-                                new ModuleInstantiation("AND2", "and2_" + context.InstanceCounter) :
-                                new ModuleInstantiation("OR2", "or2_" + context.InstanceCounter);
+                                new Instance("AND2", "and2_" + context.InstanceCounter) :
+                                new Instance("OR2", "or2_" + context.InstanceCounter);
 
                             element.Ports.Add(new Net("I0", NetType.Input,
                                 currentLevelElements[i].Ports.First(p => p.NetType == NetType.Output).ConnectedNet));
@@ -153,7 +153,7 @@ namespace KovchegSynthesizer
 
                         result.AddRange(currentLevelElements);
                         //if (currentLevelElements.Count == 0) break;
-                        currentLevelElements = new List<ModuleInstantiation>(nextLevelElements);
+                        currentLevelElements = new List<Instance>(nextLevelElements);
                     }
 
                     result.AddRange(currentLevelElements);

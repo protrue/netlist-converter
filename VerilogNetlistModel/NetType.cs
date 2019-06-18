@@ -1,4 +1,4 @@
-﻿namespace VerilogObjectModel
+﻿namespace VerilogNetlistModel
 {
     public enum NetType
     {

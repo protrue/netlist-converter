@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace VerilogObjectModel
+namespace VerilogNetlistModel
 {
     public static class Tools
     {
