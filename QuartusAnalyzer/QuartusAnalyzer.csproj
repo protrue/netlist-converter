@@ -50,9 +50,9 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VerilogNetlistModel\VerilogNetlistModel.csproj">
+    <ProjectReference Include="..\NetlistConverter.VerilogModel\NetlistConverter.VerilogModel.csproj">
       <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
-      <Name>VerilogNetlistModel</Name>
+      <Name>NetlistConverter.VerilogModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

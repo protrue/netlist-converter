@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{019DB195-F9D4-4F8A-B957-F83C1C81A711}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>QuartusToKovchegApplication</RootNamespace>
-    <AssemblyName>QuartusToKovchegApplication</AssemblyName>
+    <RootNamespace>NetlistConverter.Gui</RootNamespace>
+    <AssemblyName>NetlistConverter.Gui</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

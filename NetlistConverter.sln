@@ -9,17 +9,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KovchegSynthesizer", "Kovch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartusAnalyzer", "QuartusAnalyzer\QuartusAnalyzer.csproj", "{62CC58CA-C641-427D-9D2C-AABFA4A38D7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gui", "Gui\Gui.csproj", "{019DB195-F9D4-4F8A-B957-F83C1C81A711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Gui", "NetlistConverter.Gui\NetlistConverter.Gui.csproj", "{019DB195-F9D4-4F8A-B957-F83C1C81A711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerilogNetlistModel", "VerilogNetlistModel\VerilogNetlistModel.csproj", "{035A2FF1-C5C3-4829-AF77-3158FF71FD70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.VerilogModel", "NetlistConverter.VerilogModel\NetlistConverter.VerilogModel.csproj", "{035A2FF1-C5C3-4829-AF77-3158FF71FD70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer", "Analyzer\Analyzer.csproj", "{1525282A-4202-4581-81DF-75BB515E6C51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Analysis", "NetlistConverter.Analysis\NetlistConverter.Analysis.csproj", "{1525282A-4202-4581-81DF-75BB515E6C51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Converter.csproj", "{8682D7AE-711A-4B47-99BD-BF76C4B451AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Transformation", "NetlistConverter.Transformation\NetlistConverter.Transformation.csproj", "{8682D7AE-711A-4B47-99BD-BF76C4B451AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{CAD8A292-2D96-4618-AE20-7CA7165D876E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Generator", "NetlistConverter.Generator\NetlistConverter.Generator.csproj", "{CAD8A292-2D96-4618-AE20-7CA7165D876E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cli", "Cli\Cli.csproj", "{3EBB3F97-A840-49AE-A066-D7F3024E56C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Cli", "NetlistConverter.Cli\NetlistConverter.Cli.csproj", "{3EBB3F97-A840-49AE-A066-D7F3024E56C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

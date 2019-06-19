@@ -7,8 +7,8 @@
     <ProjectGuid>{8682D7AE-711A-4B47-99BD-BF76C4B451AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Converter</RootNamespace>
-    <AssemblyName>Converter</AssemblyName>
+    <RootNamespace>NetlistConverter.Converter</RootNamespace>
+    <AssemblyName>NetlistConverter.Converter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
