@@ -18,7 +18,7 @@ namespace NetlistConverter.Converter.InstanceTransformers
                 result[i] = new bool[variablesCount];
 
             var k = 1;
-            for (var j = variablesCount; j >= 0; j--)
+            for (var j = variablesCount - 1; j >= 0; j--)
             {
                 var currentValue = false;
                 for (var i = 0; i < rowsCount; i++)

@@ -87,9 +87,9 @@ namespace NetlistConverter.Analysis
                 
             }
 
-            var result = PostProcess(context.Module);
+            //var result = PostProcess(context.Module);
 
-            return result;
+            return context.Module;
         }
     }
 }

@@ -25,6 +25,30 @@ namespace NetlistConverter.Converter
                 n.NetType != NetType.Wire ||
                 n.Identifier == "gnd" ||
                 n.Identifier == "vcc");
+
+            foreach (var net in quartusScheme.Nets)
+            {
+                net.Identifier = net.Identifier.Replace("~", "_");
+                net.Identifier = net.Identifier.Replace(".", "_");
+            }
+
+            foreach (var instance in quartusScheme.Instances)
+            {
+                instance.ModuleIdentifier = instance.ModuleIdentifier.Replace("~", "_");
+                instance.ModuleIdentifier = instance.ModuleIdentifier.Replace(".", "_");
+
+                foreach (var port in instance.Ports)
+                {
+                    port.Identifier = port.Identifier.Replace("~", "_");
+                    port.Identifier = port.Identifier.Replace(".", "_");
+
+                    if (port.ConnectedNet != null)
+                    {
+                        port.ConnectedNet.Identifier = port.ConnectedNet.Identifier.Replace("~", "_");
+                        port.ConnectedNet.Identifier = port.ConnectedNet.Identifier.Replace(".", "_");
+                    }
+                }
+            }
         }
 
         public Module Transform(Module scheme)

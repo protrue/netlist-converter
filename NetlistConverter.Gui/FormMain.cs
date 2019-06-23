@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using Generator;
+using NetlistConverter.Analysis;
+using NetlistConverter.Converter;
 using Newtonsoft.Json;
 
 namespace QuartusToKovchegApplication
@@ -32,7 +36,8 @@ namespace QuartusToKovchegApplication
             if (dialogResult == DialogResult.OK)
             {
                 textBoxInputFilePath.Text = openFileDialog.FileName;
-                richTextBoxQuartusScheme.Text = File.ReadAllText(openFileDialog.FileName);
+                //richTextBoxQuartusScheme.Text = File.ReadAllText(openFileDialog.FileName);
+                
             }
         }
 
@@ -63,17 +68,36 @@ namespace QuartusToKovchegApplication
         private void ButtonTranslateClick(object sender, EventArgs e)
         {
             //try
-            {
-                var quartusText = richTextBoxQuartusScheme.Text;
-                var kovchegText = QuartusToKovchegTranslator.Translator.Translate(quartusText);
+            //{
+            var quartusText = richTextBoxQuartusScheme.Text;
+            //var kovchegText = QuartusToKovchegTranslator.Translator.Translate(quartusText);
 
-                richTextBoxLog.Text = "Трансляция успешно завершена" + Environment.NewLine;
+            var quartusNetlist = File.ReadAllText(textBoxInputFilePath.Text);
 
-                richTextBoxKovchegScheme.Text = kovchegText;
-                tabControlView.SelectedTab = tabPageKovcheg;
+            richTextBoxLog.Text += "Файл считан успешно" + Environment.NewLine;
 
-                File.WriteAllText(textBoxOutputFilePath.Text, kovchegText);
-            }
+            var analyzer = new NetlistAnalyzer();
+            var quartusScheme = analyzer.Analyze(quartusNetlist);
+
+            richTextBoxLog.Text += "Анализ завершён успешно" + Environment.NewLine;
+
+            var transformer = new NetlistTransformer();
+            var kovchegScheme = transformer.Transform(quartusScheme);
+
+            richTextBoxLog.Text += "Преобразование завершено успешно" + Environment.NewLine;
+
+            var generator = new NetlistGenerator();
+            var kovchegNetlist = generator.GenerateNetlist(kovchegScheme);
+
+            richTextBoxLog.Text += "Генерация завершена успешно" + Environment.NewLine;
+
+            richTextBoxKovchegScheme.Text = kovchegNetlist;
+            tabControlView.SelectedTab = tabPageKovcheg;
+
+            File.WriteAllText(textBoxOutputFilePath.Text, kovchegNetlist);
+
+            richTextBoxLog.Text += "Запись в файл завершена успешно" + Environment.NewLine;
+            //}
             //catch (Exception exception)
             //{
             //    richTextBoxLog.Text += GetFullExceptionTrace(exception) + Environment.NewLine + Environment.NewLine;
@@ -82,10 +106,20 @@ namespace QuartusToKovchegApplication
 
             richTextBoxLog.Text += string.Join(Environment.NewLine,
                 $"Объектное представление схемы из Quartus:",
-                JsonConvert.SerializeObject(QuartusToKovchegTranslator.Translator.LastQuartusScheme, Formatting.Indented),
+                JsonConvert.SerializeObject(quartusScheme, Formatting.Indented),
                 Environment.NewLine,
                 $"Объектное представление схемы для Ковчег:",
-                JsonConvert.SerializeObject(QuartusToKovchegTranslator.Translator.LastKovchegScheme, Formatting.Indented));
+                JsonConvert.SerializeObject(kovchegScheme, Formatting.Indented));
+
+            listBoxQuartusInstances.Items.Clear();
+            listBoxQuartusNets.Items.Clear();
+            listBoxKovchegInstances.Items.Clear();
+            listBoxKovchegNets.Items.Clear();
+
+            listBoxQuartusInstances.Items.AddRange(quartusScheme.Instances.Select(i => $"{i.ModuleIdentifier} {i.Identifier}").ToArray());
+            listBoxQuartusNets.Items.AddRange(quartusScheme.Nets.Select(i => $"{i.NetType} {i.Identifier} {i.ConnectedNet}").ToArray());
+            listBoxKovchegInstances.Items.AddRange(kovchegScheme.Instances.Select(i => $"{i.ModuleIdentifier} {i.Identifier}").ToArray());
+            listBoxKovchegNets.Items.AddRange(kovchegScheme.Nets.Select(i => $"{i.NetType} {i.Identifier} {i.ConnectedNet}").ToArray());
         }
     }
 }

@@ -51,6 +51,14 @@
             this.richTextBoxKovchegScheme = new System.Windows.Forms.RichTextBox();
             this.tabPageLog = new System.Windows.Forms.TabPage();
             this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
+            this.tabPageQuartusInstances = new System.Windows.Forms.TabPage();
+            this.tabPageQuartusNets = new System.Windows.Forms.TabPage();
+            this.listBoxQuartusInstances = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listBoxQuartusNets = new System.Windows.Forms.ListBox();
+            this.listBoxKovchegInstances = new System.Windows.Forms.ListBox();
+            this.tabPageKovchegNets = new System.Windows.Forms.TabPage();
+            this.listBoxKovchegNets = new System.Windows.Forms.ListBox();
             this.tableLayoutPanelMain.SuspendLayout();
             this.groupBoxQuartusFile.SuspendLayout();
             this.tableLayoutPanelQuartusFile.SuspendLayout();
@@ -61,6 +69,10 @@
             this.tabPageQuartus.SuspendLayout();
             this.tabPageKovcheg.SuspendLayout();
             this.tabPageLog.SuspendLayout();
+            this.tabPageQuartusInstances.SuspendLayout();
+            this.tabPageQuartusNets.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPageKovchegNets.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -220,6 +232,10 @@
             this.tabControlView.Controls.Add(this.tabPageQuartus);
             this.tabControlView.Controls.Add(this.tabPageKovcheg);
             this.tabControlView.Controls.Add(this.tabPageLog);
+            this.tabControlView.Controls.Add(this.tabPageQuartusInstances);
+            this.tabControlView.Controls.Add(this.tabPageQuartusNets);
+            this.tabControlView.Controls.Add(this.tabPage1);
+            this.tabControlView.Controls.Add(this.tabPageKovchegNets);
             this.tabControlView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlView.Location = new System.Drawing.Point(3, 16);
             this.tabControlView.Name = "tabControlView";
@@ -254,7 +270,7 @@
             this.tabPageKovcheg.Location = new System.Drawing.Point(4, 22);
             this.tabPageKovcheg.Name = "tabPageKovcheg";
             this.tabPageKovcheg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKovcheg.Size = new System.Drawing.Size(822, 188);
+            this.tabPageKovcheg.Size = new System.Drawing.Size(764, 224);
             this.tabPageKovcheg.TabIndex = 1;
             this.tabPageKovcheg.Text = "Схема для Ковчег";
             this.tabPageKovcheg.UseVisualStyleBackColor = true;
@@ -265,7 +281,7 @@
             this.richTextBoxKovchegScheme.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxKovchegScheme.Name = "richTextBoxKovchegScheme";
             this.richTextBoxKovchegScheme.ReadOnly = true;
-            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(816, 182);
+            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(758, 218);
             this.richTextBoxKovchegScheme.TabIndex = 0;
             this.richTextBoxKovchegScheme.Text = "";
             // 
@@ -274,7 +290,7 @@
             this.tabPageLog.Controls.Add(this.richTextBoxLog);
             this.tabPageLog.Location = new System.Drawing.Point(4, 22);
             this.tabPageLog.Name = "tabPageLog";
-            this.tabPageLog.Size = new System.Drawing.Size(822, 188);
+            this.tabPageLog.Size = new System.Drawing.Size(764, 224);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Лог";
             this.tabPageLog.UseVisualStyleBackColor = true;
@@ -285,9 +301,89 @@
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(822, 188);
+            this.richTextBoxLog.Size = new System.Drawing.Size(764, 224);
             this.richTextBoxLog.TabIndex = 5;
             this.richTextBoxLog.Text = "";
+            // 
+            // tabPageQuartusInstances
+            // 
+            this.tabPageQuartusInstances.Controls.Add(this.listBoxQuartusInstances);
+            this.tabPageQuartusInstances.Location = new System.Drawing.Point(4, 22);
+            this.tabPageQuartusInstances.Name = "tabPageQuartusInstances";
+            this.tabPageQuartusInstances.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageQuartusInstances.Size = new System.Drawing.Size(764, 224);
+            this.tabPageQuartusInstances.TabIndex = 3;
+            this.tabPageQuartusInstances.Text = "Модули Quartus";
+            this.tabPageQuartusInstances.UseVisualStyleBackColor = true;
+            // 
+            // tabPageQuartusNets
+            // 
+            this.tabPageQuartusNets.Controls.Add(this.listBoxQuartusNets);
+            this.tabPageQuartusNets.Location = new System.Drawing.Point(4, 22);
+            this.tabPageQuartusNets.Name = "tabPageQuartusNets";
+            this.tabPageQuartusNets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageQuartusNets.Size = new System.Drawing.Size(764, 224);
+            this.tabPageQuartusNets.TabIndex = 4;
+            this.tabPageQuartusNets.Text = "Соединения Quartus";
+            this.tabPageQuartusNets.UseVisualStyleBackColor = true;
+            // 
+            // listBoxQuartusInstances
+            // 
+            this.listBoxQuartusInstances.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxQuartusInstances.FormattingEnabled = true;
+            this.listBoxQuartusInstances.Location = new System.Drawing.Point(3, 3);
+            this.listBoxQuartusInstances.Name = "listBoxQuartusInstances";
+            this.listBoxQuartusInstances.Size = new System.Drawing.Size(758, 218);
+            this.listBoxQuartusInstances.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.listBoxKovchegInstances);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(764, 224);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Модули Ковчег";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listBoxQuartusNets
+            // 
+            this.listBoxQuartusNets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxQuartusNets.FormattingEnabled = true;
+            this.listBoxQuartusNets.Location = new System.Drawing.Point(3, 3);
+            this.listBoxQuartusNets.Name = "listBoxQuartusNets";
+            this.listBoxQuartusNets.Size = new System.Drawing.Size(758, 218);
+            this.listBoxQuartusNets.TabIndex = 0;
+            // 
+            // listBoxKovchegInstances
+            // 
+            this.listBoxKovchegInstances.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxKovchegInstances.FormattingEnabled = true;
+            this.listBoxKovchegInstances.Location = new System.Drawing.Point(3, 3);
+            this.listBoxKovchegInstances.Name = "listBoxKovchegInstances";
+            this.listBoxKovchegInstances.Size = new System.Drawing.Size(758, 218);
+            this.listBoxKovchegInstances.TabIndex = 0;
+            // 
+            // tabPageKovchegNets
+            // 
+            this.tabPageKovchegNets.Controls.Add(this.listBoxKovchegNets);
+            this.tabPageKovchegNets.Location = new System.Drawing.Point(4, 22);
+            this.tabPageKovchegNets.Name = "tabPageKovchegNets";
+            this.tabPageKovchegNets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageKovchegNets.Size = new System.Drawing.Size(764, 224);
+            this.tabPageKovchegNets.TabIndex = 6;
+            this.tabPageKovchegNets.Text = "Соединения Ковчег";
+            this.tabPageKovchegNets.UseVisualStyleBackColor = true;
+            // 
+            // listBoxKovchegNets
+            // 
+            this.listBoxKovchegNets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxKovchegNets.FormattingEnabled = true;
+            this.listBoxKovchegNets.Location = new System.Drawing.Point(3, 3);
+            this.listBoxKovchegNets.Name = "listBoxKovchegNets";
+            this.listBoxKovchegNets.Size = new System.Drawing.Size(758, 218);
+            this.listBoxKovchegNets.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -314,6 +410,10 @@
             this.tabPageQuartus.ResumeLayout(false);
             this.tabPageKovcheg.ResumeLayout(false);
             this.tabPageLog.ResumeLayout(false);
+            this.tabPageQuartusInstances.ResumeLayout(false);
+            this.tabPageQuartusNets.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPageKovchegNets.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,6 +443,14 @@
         private System.Windows.Forms.RichTextBox richTextBoxLog;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelQuartusFile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKovchegFile;
+        private System.Windows.Forms.TabPage tabPageQuartusInstances;
+        private System.Windows.Forms.TabPage tabPageQuartusNets;
+        private System.Windows.Forms.ListBox listBoxQuartusInstances;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ListBox listBoxQuartusNets;
+        private System.Windows.Forms.ListBox listBoxKovchegInstances;
+        private System.Windows.Forms.TabPage tabPageKovchegNets;
+        private System.Windows.Forms.ListBox listBoxKovchegNets;
     }
 }
 
