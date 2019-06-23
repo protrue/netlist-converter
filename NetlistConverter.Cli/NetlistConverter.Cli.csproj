@@ -49,5 +49,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetlistConverter.Analysis\NetlistConverter.Analysis.csproj">
+      <Project>{1525282a-4202-4581-81df-75bb515e6c51}</Project>
+      <Name>NetlistConverter.Analysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetlistConverter.Generator\NetlistConverter.Generation.csproj">
+      <Project>{cad8a292-2d96-4618-ae20-7ca7165d876e}</Project>
+      <Name>NetlistConverter.Generation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetlistConverter.Transformation\NetlistConverter.Transformation.csproj">
+      <Project>{8682d7ae-711a-4b47-99bd-bf76c4b451aa}</Project>
+      <Name>NetlistConverter.Transformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetlistConverter.VerilogModel\NetlistConverter.VerilogModel.csproj">
+      <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
+      <Name>NetlistConverter.VerilogModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

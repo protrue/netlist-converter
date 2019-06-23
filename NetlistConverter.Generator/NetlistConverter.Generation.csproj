@@ -7,8 +7,8 @@
     <ProjectGuid>{CAD8A292-2D96-4618-AE20-7CA7165D876E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NetlistConverter.Generator</RootNamespace>
-    <AssemblyName>NetlistConverter.Generator</AssemblyName>
+    <RootNamespace>NetlistConverter.Generation</RootNamespace>
+    <AssemblyName>NetlistConverter.Generation</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TextGenerator.cs" />
+    <Compile Include="NetlistGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetlistConverter.VerilogModel\NetlistConverter.VerilogModel.csproj">
+      <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
+      <Name>NetlistConverter.VerilogModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

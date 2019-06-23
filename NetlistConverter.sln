@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Analysis",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Transformation", "NetlistConverter.Transformation\NetlistConverter.Transformation.csproj", "{8682D7AE-711A-4B47-99BD-BF76C4B451AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Generator", "NetlistConverter.Generator\NetlistConverter.Generator.csproj", "{CAD8A292-2D96-4618-AE20-7CA7165D876E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Generation", "NetlistConverter.Generator\NetlistConverter.Generation.csproj", "{CAD8A292-2D96-4618-AE20-7CA7165D876E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetlistConverter.Cli", "NetlistConverter.Cli\NetlistConverter.Cli.csproj", "{3EBB3F97-A840-49AE-A066-D7F3024E56C3}"
 EndProject
