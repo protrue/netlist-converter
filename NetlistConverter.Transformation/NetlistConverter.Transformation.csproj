@@ -49,7 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransformationContext.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NetlistConverter.VerilogModel\NetlistConverter.VerilogModel.csproj">
       <Project>{035a2ff1-c5c3-4829-af77-3158ff71fd70}</Project>
