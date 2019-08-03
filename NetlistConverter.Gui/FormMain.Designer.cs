@@ -241,7 +241,7 @@
             this.tabPageQuartus.Location = new System.Drawing.Point(4, 22);
             this.tabPageQuartus.Name = "tabPageQuartus";
             this.tabPageQuartus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageQuartus.Size = new System.Drawing.Size(764, 274);
+            this.tabPageQuartus.Size = new System.Drawing.Size(764, 264);
             this.tabPageQuartus.TabIndex = 0;
             this.tabPageQuartus.Text = "Схема из Quartus";
             this.tabPageQuartus.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@
             this.richTextBoxQuartusScheme.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxQuartusScheme.Name = "richTextBoxQuartusScheme";
             this.richTextBoxQuartusScheme.ReadOnly = true;
-            this.richTextBoxQuartusScheme.Size = new System.Drawing.Size(758, 268);
+            this.richTextBoxQuartusScheme.Size = new System.Drawing.Size(758, 258);
             this.richTextBoxQuartusScheme.TabIndex = 0;
             this.richTextBoxQuartusScheme.Text = "";
             // 
@@ -262,7 +262,7 @@
             this.tabPageKovcheg.Location = new System.Drawing.Point(4, 22);
             this.tabPageKovcheg.Name = "tabPageKovcheg";
             this.tabPageKovcheg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKovcheg.Size = new System.Drawing.Size(764, 224);
+            this.tabPageKovcheg.Size = new System.Drawing.Size(764, 264);
             this.tabPageKovcheg.TabIndex = 1;
             this.tabPageKovcheg.Text = "Схема для Ковчег";
             this.tabPageKovcheg.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             this.richTextBoxKovchegScheme.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxKovchegScheme.Name = "richTextBoxKovchegScheme";
             this.richTextBoxKovchegScheme.ReadOnly = true;
-            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(758, 218);
+            this.richTextBoxKovchegScheme.Size = new System.Drawing.Size(758, 258);
             this.richTextBoxKovchegScheme.TabIndex = 0;
             this.richTextBoxKovchegScheme.Text = "";
             // 
@@ -282,7 +282,7 @@
             this.tabPageLog.Controls.Add(this.richTextBoxLog);
             this.tabPageLog.Location = new System.Drawing.Point(4, 22);
             this.tabPageLog.Name = "tabPageLog";
-            this.tabPageLog.Size = new System.Drawing.Size(764, 224);
+            this.tabPageLog.Size = new System.Drawing.Size(764, 264);
             this.tabPageLog.TabIndex = 2;
             this.tabPageLog.Text = "Лог";
             this.tabPageLog.UseVisualStyleBackColor = true;
@@ -293,7 +293,7 @@
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxLog.Name = "richTextBoxLog";
             this.richTextBoxLog.ReadOnly = true;
-            this.richTextBoxLog.Size = new System.Drawing.Size(764, 224);
+            this.richTextBoxLog.Size = new System.Drawing.Size(764, 264);
             this.richTextBoxLog.TabIndex = 5;
             this.richTextBoxLog.Text = "";
             // 
@@ -303,7 +303,7 @@
             this.tabPageQuartusInstances.Location = new System.Drawing.Point(4, 22);
             this.tabPageQuartusInstances.Name = "tabPageQuartusInstances";
             this.tabPageQuartusInstances.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageQuartusInstances.Size = new System.Drawing.Size(764, 224);
+            this.tabPageQuartusInstances.Size = new System.Drawing.Size(764, 264);
             this.tabPageQuartusInstances.TabIndex = 3;
             this.tabPageQuartusInstances.Text = "Модули Quartus";
             this.tabPageQuartusInstances.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
             this.listBoxQuartusInstances.FormattingEnabled = true;
             this.listBoxQuartusInstances.Location = new System.Drawing.Point(3, 3);
             this.listBoxQuartusInstances.Name = "listBoxQuartusInstances";
-            this.listBoxQuartusInstances.Size = new System.Drawing.Size(758, 218);
+            this.listBoxQuartusInstances.Size = new System.Drawing.Size(758, 258);
             this.listBoxQuartusInstances.TabIndex = 0;
             // 
             // tabPageQuartusNets
@@ -323,7 +323,7 @@
             this.tabPageQuartusNets.Location = new System.Drawing.Point(4, 22);
             this.tabPageQuartusNets.Name = "tabPageQuartusNets";
             this.tabPageQuartusNets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageQuartusNets.Size = new System.Drawing.Size(764, 224);
+            this.tabPageQuartusNets.Size = new System.Drawing.Size(764, 264);
             this.tabPageQuartusNets.TabIndex = 4;
             this.tabPageQuartusNets.Text = "Соединения Quartus";
             this.tabPageQuartusNets.UseVisualStyleBackColor = true;
@@ -334,7 +334,7 @@
             this.listBoxQuartusNets.FormattingEnabled = true;
             this.listBoxQuartusNets.Location = new System.Drawing.Point(3, 3);
             this.listBoxQuartusNets.Name = "listBoxQuartusNets";
-            this.listBoxQuartusNets.Size = new System.Drawing.Size(758, 218);
+            this.listBoxQuartusNets.Size = new System.Drawing.Size(758, 258);
             this.listBoxQuartusNets.TabIndex = 0;
             // 
             // tabPageKochegInstances
@@ -363,7 +363,7 @@
             this.tabPageKovchegNets.Location = new System.Drawing.Point(4, 22);
             this.tabPageKovchegNets.Name = "tabPageKovchegNets";
             this.tabPageKovchegNets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageKovchegNets.Size = new System.Drawing.Size(764, 224);
+            this.tabPageKovchegNets.Size = new System.Drawing.Size(764, 264);
             this.tabPageKovchegNets.TabIndex = 6;
             this.tabPageKovchegNets.Text = "Соединения Ковчег";
             this.tabPageKovchegNets.UseVisualStyleBackColor = true;
@@ -374,7 +374,7 @@
             this.listBoxKovchegNets.FormattingEnabled = true;
             this.listBoxKovchegNets.Location = new System.Drawing.Point(3, 3);
             this.listBoxKovchegNets.Name = "listBoxKovchegNets";
-            this.listBoxKovchegNets.Size = new System.Drawing.Size(758, 218);
+            this.listBoxKovchegNets.Size = new System.Drawing.Size(758, 258);
             this.listBoxKovchegNets.TabIndex = 0;
             // 
             // tableLayoutPanelConvert
@@ -401,6 +401,7 @@
             this.buttonTranslate.TabIndex = 10;
             this.buttonTranslate.Text = "Конвертировать";
             this.buttonTranslate.UseVisualStyleBackColor = true;
+            this.buttonTranslate.Click += new System.EventHandler(this.ButtonTranslateClick);
             // 
             // FormMain
             // 
